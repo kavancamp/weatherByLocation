@@ -1,3 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather app</title>
+  </head>
+<body>
+<div class="container">
+  <div class="weather">
+    <h1 id="city">Sydney NSW, Australia</h1>
+    <ul>
+      <li id="date"></li>
+      <li>Partly Cloudy</li>
+    </ul>
+    <div class="row">
+      <div class="col-6">
+        <div class="clearfix">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAaxJREFUaN7tmdGNhCAQhi1hS7CELcEGLrGELcESpgRLsAQ7uCvBV98swQ44uIwXzhMYgQE2geR/MZPN/8nv4LiNEKJ5ZzUVoAJUgApQAaICUNe6rh3q2SRcQQDS7ENqktqlhKZNCooGkAZbNCosmkoGWBzmD0FxANLUi2j+kNqtXmpEDepaToD5JgDb7vgCfEUCUBrfHUCpSwKAbRMu2maoZnYAdUAxGD+0swIwm1dx7A3nzLlZzOfuRQVYmMy/MJYDRhPwdaS13LBdh3ACYP/mMA+W03yjPjMUAODIPN557252B2DiyD1GM3QHfyKYegdAe0hj/J6K29MGMETO/YPhINyOnbgCaGP2egbzvx3N1kbHQnJv3d2gkTLXijYTV4AMIyXoB4pvzcfn2kstvjW+8wBo3QSu3ucpNWgOpFyQxhpfAOdoSB0fswBEjtA/cyouKjaUmhCAzjWUU2oM5oS6TqnJ3oWSAVA+g/h8KmEHOGKgjX9gioqtJicAmIaJ88Nqq7nT4y8AjDXZI2SA+gNgq7kDAK4PUJSabAAp1/kcsNXU/8gqQAWoAGXpGzmRTGmgvhAvAAAAAElFTkSuQmCC"
+            alt="icon"
+            class="icon float-left"
+          />
+        </div>
+        <div class="float-left">
+          <span class="temp" id="temp">19</span>
+          <span class="f">
+            <p  id="fahrenheit">°F</p>
+          </span>
+        </div>
+
+        <div class="col-6">
+          <ul>
+            <li class="description">Cloudy</li>
+            <li class="feels_like">Feels like: °</li>
+            <li class="humidity">Humidity: 77%</li>
+            <li class="wind">Wind: 8 km/h</li>
+          </ul>
+        </div>
+    <form class="search-form float-right" id="search-form">
+      <input
+        type="text"
+        placeholder="Type a city.."
+        id="city-input"
+        class="form-control"
+      />
+        <button>
         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em"
     width="1.5em" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -7,6 +57,7 @@
       </button>
       <button id="current">Current</button>
     </form>
+
   </div>
 </div>
   <script src="./assets/index.js"></script>
