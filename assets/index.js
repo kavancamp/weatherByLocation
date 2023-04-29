@@ -7,7 +7,7 @@ function changeCity(event) {
   if (cityInput.value) {
     city.innerHTML = cityInput.value;
   }
-  let endPoint = "http://api.openweathermap.org/data/2.5/weather?q=";
+  let endPoint = "https://api.openweathermap.org/data/2.5/weather?q=";
   let url = `${endPoint}${cityInput.value}&units=imperial&appid=${api_key}`;
   console.log(url);
 
@@ -58,7 +58,7 @@ function showLocation(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   let api_key = "df105d3db4bbc2adb0adee0461f34a46";
-  let endPoint = "http://api.openweathermap.org/data/2.5/weather?";
+  let endPoint = "https://api.openweathermap.org/data/2.5/weather?";
   let url = `${endPoint}lat=${lat}&lon=${long}&appid=${api_key}&units=imperial`;
 
   console.log(url);
