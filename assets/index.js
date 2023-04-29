@@ -1,14 +1,9 @@
-//require("dotenv").config();
-//console.log(process.env);
-import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-dotenv.config();
-
 function changeCity(event) {
   event.preventDefault();
 
   let city = document.querySelector("#city");
   let cityInput = document.querySelector("#city-input");
-  let api_key = process.env.SECRET_KEY;
+  let api_key = "df105d3db4bbc2adb0adee0461f34a46";
   if (cityInput.value) {
     city.innerHTML = cityInput.value;
   }
@@ -62,7 +57,7 @@ window.onload = function () {
 function showLocation(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
-  let api_key = process.env.SECRET_KEY;
+  let api_key = "df105d3db4bbc2adb0adee0461f34a46";
   let endPoint = "http://api.openweathermap.org/data/2.5/weather?";
   let url = `${endPoint}lat=${lat}&lon=${long}&appid=${api_key}&units=imperial`;
 
