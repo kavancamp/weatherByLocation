@@ -8,9 +8,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-#current {
-  width: 90px;
-}
+
 h1 {
   color: white;
   font-size: 24px;
@@ -39,43 +37,6 @@ li {
   line-height: 1;
   list-style: none;
 }
-.f {
-  position: relative;
-  top: -20px;
-}
-
-.icon {
-  height: 60px;
-  width: 60px;
-  margin-right: 10px;
-}
-.weather {
-  border: 1px solid #b3d1f9;
-  padding: 10px;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 600px;
-  background: black;
-  opacity: 90%;
-  width: 100%;
-  height: 100%;
-}
-
-.temp {
-  font-size: 60px;
-  padding-top: 0px;
-  color: white;
-}
-a#fahrenheit {
-  text-decoration: none;
-  color: white;
-}
-.search {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 button {
   margin: 0.5em;
   border-radius: 50%;
@@ -100,7 +61,64 @@ input.search-form {
   font-size: 105%;
   width: calc(100% - 100px);
 }
+.f {
+  position: relative;
+  top: -20px;
+}
+
+.icon {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+}
+.weather {
+  border: 1px solid #b3d1f9;
+  padding: 10px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 600px;
+  background: black;
+  opacity: 90%;
+  width: 100%;
+  height: 100%;
+}
+
+.temp,
+.temp-celsius {
+  font-size: 60px;
+  padding-top: 0px;
+  color: white;
+}
+.tempChange {
+  text-decoration: none;
+  color: white;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#current {
+  width: 90px;
+}
+a#fahrenheit,
+a#celsius {
+  color: gray;
+}
+
+a#celsius:focus,
+a#fahrenheit:focus {
+  color: rgb(206, 63, 249);
+}
 #submit:hover {
   color: rgb(206, 63, 249);
-  background-color: white;
+  background-color: gray;
+  color: black;
+}
+
+footer {
+  text-align: center;
+}
+a.github {
+  color: gray;
 }
