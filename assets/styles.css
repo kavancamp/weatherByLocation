@@ -49,6 +49,10 @@ button {
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
+footer {
+  text-align: center;
+  text-shadow: rgb(236, 213, 119) 1px 0 10px;
+}
 
 input.search-form {
   border: none;
@@ -60,6 +64,15 @@ input.search-form {
   font-family: inherit;
   font-size: 105%;
   width: calc(100% - 100px);
+}
+a#fahrenheit,
+a#celsius {
+  color: gray;
+}
+
+a#celsius:focus,
+a#fahrenheit:focus {
+  color: rgb(206, 63, 249);
 }
 .f {
   position: relative;
@@ -98,27 +111,31 @@ input.search-form {
   align-items: center;
   justify-content: center;
 }
+.card-body {
+  overflow: scroll;
+  margin: 0 auto;
+  color: gray;
+  height: 100px;
+}
+.day {
+  display: flex;
+  color: gray;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 #current {
   width: 90px;
 }
-a#fahrenheit,
-a#celsius {
-  color: gray;
-}
 
-a#celsius:focus,
-a#fahrenheit:focus {
-  color: rgb(206, 63, 249);
-}
 #submit:hover {
   color: rgb(206, 63, 249);
   background-color: gray;
   color: black;
 }
 
-footer {
-  text-align: center;
-}
-a.github {
+.github {
   color: gray;
 }
