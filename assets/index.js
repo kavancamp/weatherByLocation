@@ -1,3 +1,40 @@
+//get & display time
+window.onload = function () {
+  let now = new Date();
+  let todaysDate = now.toLocaleDateString();
+  var time = now.getHours() + ":" + now.getMinutes();
+  document.getElementById(`date`).innerHTML = `${todaysDate} ${time}`;
+};
+
+//get 5-day
+/*function getForecast(position) {
+  let lat = position.coords.lat;
+  let long = position.coords.longitude;
+  console.log(lat, long);
+  let api_key = "df105d3db4bbc2adb0adee0461f34a46";
+  let url = `https:api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=imperial&appid=${api_key}`;
+  axios.get(url).then(showForecast);
+  console.log(url);
+}*/
+function showForecast() {
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+  let forecastElement = document.querySelector(".day");
+  //let forecastHTML = ``;
+  days.forEach(function (day) {
+    forecastHTML = `
+    <p class="h2 fw-normal day-name">${day}</p>
+    <p class="h2 fw-normal temperature-max">
+    <i class="fas fa-cloud pe-2"></i>
+     37
+     </p> 
+    `;
+  });
+
+  forecastElement.innerHTML = forecastHTML + `</div>`;
+  console.log(forecastHTML);
+}
+showForecast();
+
 function changeCity(event) {
   event.preventDefault();
 
@@ -16,14 +53,6 @@ function changeCity(event) {
 
 let cityButton = document.querySelector("#search-form");
 cityButton.addEventListener("submit", changeCity);
-
-//get & display time
-window.onload = function () {
-  let now = new Date();
-  let todaysDate = now.toLocaleDateString();
-  var time = now.getHours() + ":" + now.getMinutes();
-  document.getElementById(`date`).innerHTML = `${todaysDate} ${time}`;
-};
 
 //get location & display when current is clicked
 
@@ -45,8 +74,8 @@ function showTemp(response) {
   let name = response.data.name;
   let country = response.data.sys.country;
   let temp = Math.round(response.data.main.temp);
-  let feel = response.data.main.feels_like;
-  let humidity = response.data.main.humidity;
+  let feel = Math.round(response.data.main.feels_like);
+  let humidity = Math.round(response.data.main.humidity);
   let description = response.data.weather[0].description;
   let icon = response.data.weather[0].icon;
   let speed = response.data.wind.speed;
