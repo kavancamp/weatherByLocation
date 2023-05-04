@@ -113,17 +113,20 @@ a#fahrenheit:focus {
 }
 .card-body {
   overflow: scroll;
-  margin: 0 auto;
   color: gray;
   height: 100px;
+  display: block;
+  align-items: center;
+}
+.forecast-container {
+  display: flex;
+  flex-direction: column;
+  color: gray;
 }
 .day {
   display: flex;
-  color: gray;
   flex-direction: row;
-  justify-content: space-around;
-  padding-right: 15px;
-  padding-left: 15px;
+  justify-content: space-between;
 }
 
 #current {
@@ -132,10 +135,8 @@ a#fahrenheit:focus {
 
 #submit:hover {
   color: rgb(206, 63, 249);
-  background-color: gray;
-  color: black;
 }
 
 .github {
-  color: gray;
+  color: white;
 }
