@@ -7,33 +7,58 @@ window.onload = function () {
 };
 
 //get 5-day
-/*function getForecast(position) {
-  let lat = position.coords.lat;
-  let long = position.coords.longitude;
-  console.log(lat, long);
-  let api_key = "df105d3db4bbc2adb0adee0461f34a46";
-  let url = `https:api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=imperial&appid=${api_key}`;
-  axios.get(url).then(showForecast);
-  console.log(url);
-}*/
-function showForecast() {
-  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
-  let forecastElement = document.querySelector(".day");
-  //let forecastHTML = ``;
-  days.forEach(function (day) {
-    forecastHTML = `
-    <p class="h2 fw-normal day-name">${day}</p>
-    <p class="h2 fw-normal temperature-max">
-    <i class="fas fa-cloud pe-2"></i>
-     37
+function getForecast(coordinates) {
+  let api_key = "6569c41e8480d62af539a47927fda54c";
+  let url = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${api_key}&units=imperial`;
+  axios
+    .get(url)
+    .then(showForecast)
+    .catch((e) => {
+      console.log(e);
+    });
+}
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+function showForecast(response) {
+  let forecast = response.data.daily.slice(1, 6);
+  console.log(response);
+  let forecastElement = document.querySelector(".forecast-container");
+  let forecastHTML = ` <div class="d-flex day" style="display: flex;
+  justify-content: space-around; align-items: center; flex-direction: row; flex-wrap: wrap;">`;
+  forecast.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <p class="h2 fw-normal day-name" style="flex-basis: 33.3%">${formatDay(
+      day.dt
+    )}</p>
+     <p class="h2 fw-normal" style=" flex-basis: 33.3%;">
+    <img 
+      src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"
+      class="card-img-top" style="width: 50px; height: 50px;"
+      alt="${day.weather[0].description}"
+    />
      </p> 
+     <p class="h2 fw-normal"  style="flex-basis:33.3%;">
+    ${Math.round(day.temp.day)} °F </p>
+   
     `;
   });
-
-  forecastElement.innerHTML = forecastHTML + `</div>`;
-  console.log(forecastHTML);
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
-showForecast();
 
 function changeCity(event) {
   event.preventDefault();
@@ -47,8 +72,12 @@ function changeCity(event) {
   let endPoint = "https://api.openweathermap.org/data/2.5/weather?q=";
   let url = `${endPoint}${cityInput.value}&units=imperial&appid=${api_key}`;
   console.log(url);
-
-  axios.get(url).then(showTemp);
+  axios
+    .get(url)
+    .then(showTemp)
+    .catch((e) => {
+      console.log(e);
+    });
 }
 
 let cityButton = document.querySelector("#search-form");
@@ -56,7 +85,8 @@ cityButton.addEventListener("submit", changeCity);
 
 //get location & display when current is clicked
 
-function getLocation() {
+function getLocation(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(showLocation);
 }
 function showLocation(position) {
@@ -67,7 +97,13 @@ function showLocation(position) {
   let url = `${endPoint}lat=${lat}&lon=${long}&appid=${api_key}&units=imperial`;
   console.log(url);
   console.log(`lat: ${lat}, long: ${long}`);
-  axios.get(`${url}`).then(showTemp);
+  axios
+    .get(`${url}`)
+    .then(showTemp)
+    .catch((e) => {
+      console.log(e);
+    });
+  console.log(url);
 }
 
 function showTemp(response) {
@@ -91,10 +127,11 @@ function showTemp(response) {
   document.querySelector(".wind").innerHTML = `Wind speed: ${speed}mph`;
   document.querySelector(".icon").src =
     "https://openweathermap.org/img/wn/" + icon + ".png";
+  getForecast(response.data.coord);
 }
 
 let button = document.querySelector("#current");
-button.addEventListener("click", getLocation, showTemp);
+button.addEventListener("click", getLocation);
 
 function tglC() {
   // prettier-ignore
@@ -108,5 +145,6 @@ function tglF() {
 
 let cT = document.querySelector("#celsius");
 cT.addEventListener("click", tglC);
+
 let fT = document.querySelector("#fahrenheit");
 fT = fT.addEventListener("click", tglF);
