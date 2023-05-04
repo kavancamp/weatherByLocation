@@ -20,11 +20,7 @@
         <div class="row">
           <div class="col-6">
             <div class="clearfix">
-              <img
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAaxJREFUaN7tmdGNhCAQhi1hS7CELcEGLrGELcESpgRLsAQ7uCvBV98swQ44uIwXzhMYgQE2geR/MZPN/8nv4LiNEKJ5ZzUVoAJUgApQAaICUNe6rh2q2SRcQQDS7ENqktqlhKZNCooGkAZbNCosmkoGWBzmD0FxANLUi2j+kNqtXmpEDepaToD5JgDb7vgCfEUCUBrfHUCpSwKAbRMu2maoZnYAdUAxGD+0swIwm1dx7A3nzLlZzOfuRQVYmMy/MJYDRhPwdaS13LBdh2ACYP/mMA+W03yjPjMUAODIPN557252B2DiyD1GM3QHfyKYegdAe0hj/J6K29MGMETO/YPhINyOnbgCaGP2egbzvx3N1kbHQnJv3d2gkTLXijYTV4AMIyXoB4pvzcfn2kstvjW+8wBo3QSu3ucpNWgOpFyQxhpfAOdoSB0fswBEjtA/cyouKjaUmhCAzjWUU2oM5oS6TqnJ3oWSAVA+g/h8KmEHOGKgjX9gioqtJicAmIaJ88Nqq7nT4y8AjDXZI2SA+gNgq7kDAK4PUJSabAAp1/kcsNXU/8gqQAWoAGXpGzmRTGmgvhAvAAAAAElFTkSuQmCC"
-                alt="icon"
-                class="icon float-left"
-              />
+              <img class="wob_tci" alt="Cloudy" src="//ssl.gstatic.com/onebox/weather/64/cloudy.png" id="wob_tci" data-atf="1" data-frt="0">
             </div>
           </div>
           <div class="float-left">
@@ -34,7 +30,6 @@
             </span>
             <span class="units">
               <a href="#" id="celsius" onclick="tglC()"> °C </a>
-              |
               <a href="#" id="fahrenheit" onclick="tglF()">°F </a>
             </span>
           </div>
@@ -74,20 +69,26 @@
         </form>
 
         <div class="card-body p-4 text-center forecast" id="forecast">
-          <a href="#!" class="text-body"
-            ><i class="fas fa-chevron-up fa-lg mb-4"></i
-          ></a>
+          <a href="#!" class="text-body">
+            <i class="fas fa-chevron-up fa-lg mb-4"></i>
+          </a>
+         <div class="forecast-container">
           <div class="d-flex day">
+            <p class="fw-normal day-name">Tomorrow</p>
+            <p class="fw-normal temperature-day">
+              <i class="fas fa-cloud pe-2"></i>
+            21°F
+            </p> 
 
-          </div>
-         
+            </div>
+         </div>
       </div>
-      <footer>
-        <a class="gitHub" href="https://github.com/kavancamp" alt="gitHub">
-          Coded by Keenah VanCampenhout</a
-        >
+    </div> 
+    <footer>
+      <a class="gitHub" href="https://github.com/kavancamp"target="_blank"alt="gitHub">
+        Coded by Keenah VanCampenhout</a
+      >
       </footer>
-    </div>
   </body>
 
   <script src="./assets/index.js"></script>
