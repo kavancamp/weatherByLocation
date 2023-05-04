@@ -111,22 +111,26 @@ a#fahrenheit:focus {
   align-items: center;
   justify-content: center;
 }
+#forecast {
+  width: 300px;
+}
 .card-body {
   overflow: scroll;
   color: gray;
   height: 100px;
   display: block;
-  align-items: center;
 }
 .forecast-container {
   display: flex;
   flex-direction: column;
   color: gray;
+  text-align: right;
 }
 .day {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 #current {
